@@ -10,7 +10,7 @@ using DAL.Repository;
 
 namespace MVC.CMS.Web.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : Controller 
     {
         // GET: Product
         public ActionResult ProductList()
