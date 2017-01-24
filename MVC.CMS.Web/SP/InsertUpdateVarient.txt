@@ -1,0 +1,27 @@
+CREATE PROCEDURE [dbo].[InsertUpdateVarient]
+	@DesignId int,
+	@ItemId INT = 0,
+	@SKU VARCHAR(100),
+	@Quantity INT,
+	@Price decimal(18,2),
+	@Color INT,
+	@Size INT
+AS
+BEGIN
+	IF @ItemId = 0
+	BEGIN
+		IF NOT EXISTS(Select ItemId from Item WHERE SKU = @SKU)
+		BEGIN
+			INSERT INTO Item(DesignId,SKU,Quantity,Price,Color,Size)
+			VALUES(@DesignId,@SKU,@Quantity,@Price,@Color,@Size)
+		END
+		ELSE
+		BEGIN
+			UPDATE Item set SKU = @SKU, Quantity = @Quantity,Color = @Color,Size = @Size,Price = @Price where ItemId = @ItemId
+		END
+	END
+	ELSE
+	BEGIN
+		UPDATE Item set SKU = @SKU, Quantity = @Quantity,Color = @Color,Size = @Size,Price = @Price where ItemId = @ItemId
+	END
+END

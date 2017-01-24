@@ -152,6 +152,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="SP\dbo.Color.sql" />
+    <Content Include="SP\dbo.Design.sql" />
+    <Content Include="SP\dbo.Item.sql" />
+    <Content Include="SP\dbo.Size.sql" />
+    <Content Include="SP\InsertUpdateDesign.txt" />
+    <Content Include="SP\InsertUpdateVarient.txt" />
     <Content Include="Web.config" />
     <Content Include="Views\Product\_CreateProduct.cshtml" />
     <Content Include="Views\Product\_CreateVarient.cshtml" />

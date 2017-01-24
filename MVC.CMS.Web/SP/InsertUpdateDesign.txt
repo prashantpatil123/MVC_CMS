@@ -1,0 +1,22 @@
+CREATE PROCEDURE [dbo].[InsertUpdateDesign]
+	@DesignId int = 0,
+	@ProductCode varchar(50),
+	@Title varchar(50),
+	@Description varchar(max),
+	@ImageUrl varchar(200)
+AS
+BEGIN
+	IF @DesignId > 0
+	BEGIN
+		Update Design SET ProductCode = @ProductCode , Title = @Title, [Description] = @Description,ImageUrl = @ImageUrl WHERE DesignId = @DesignId
+		SELECT @DesignId
+	END
+	ELSE
+	BEGIN
+		INSERT INTO Design(ProductCode, Title, [Description],ImageUrl)
+		VALUES(@ProductCode, @Title, @Description,@ImageUrl)
+
+		SELECT @@IDENTITY
+
+	END
+END
