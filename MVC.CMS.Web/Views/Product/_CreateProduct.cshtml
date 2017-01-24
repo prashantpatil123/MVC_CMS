@@ -1,0 +1,34 @@
+﻿@model BO.ViewModels.VmProduct
+
+<div class="row">
+    <div class="col-sm-6">
+        @Html.LabelFor(m => m.design.ProductCode)
+        @Html.TextAreaFor(m => m.design.ProductCode, new { @class = "form-control", @placeholder = "Product Code" })
+        @Html.ValidationMessageFor(m => m.design.ProductCode)
+    </div>
+
+    <div class="col-sm-6">
+        @Html.LabelFor(m => m.design.Title)
+        @Html.TextAreaFor(m => m.design.Title, new { @class = "form-control", @placeholder = "Title" })
+        @Html.ValidationMessageFor(m => m.design.Title)
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        @Html.LabelFor(m => m.design.Description)
+        @Html.TextAreaFor(m => m.design.Description, new { @class = "form-control", @placeholder = "Product Description" })
+        @Html.ValidationMessageFor(m => m.design.Description)
+    </div>
+
+    <div class="col-sm-6">
+        @Html.LabelFor(m => m.design.ImageUrl)
+        @Html.TextAreaFor(m => m.design.ImageUrl, new { @class = "form-control", @placeholder = "Image Url" })
+        @Html.ValidationMessageFor(m => m.design.ImageUrl)
+
+    </div>
+</div>
+
+
+

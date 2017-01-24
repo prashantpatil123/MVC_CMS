@@ -1,0 +1,42 @@
+﻿@model BO.ViewModels.VmProduct
+
+@using (Ajax.BeginForm("CreateVarient", "Product", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "dvVarientList" }))
+{
+
+    <div class="row">
+        <div class="col-md-2 col-sm-2">
+            @Html.TextBoxFor(model => model.varient.SKU, new { @class = "form-control", @placeholder = "SKU" })
+            @Html.ValidationMessageFor(model => model.varient.SKU)
+        </div>
+
+        <div class="col-md-2 col-sm-2">
+            @Html.TextBoxFor(model => model.varient.Price, new { @class = "form-control", @placeholder = "Price" })
+            @Html.ValidationMessageFor(model => model.varient.Price)
+        </div>
+
+        <div class="col-md-2 col-sm-2">
+            @Html.TextBoxFor(model => model.varient.Quantity, new { @class = "form-control", @placeholder = "Quantity" })
+            @Html.ValidationMessageFor(model => model.varient.Quantity)
+        </div>
+
+        <div class="col-md-2 col-sm-2">
+            @Html.DropDownListFor(model => model.varient.Color, ViewBag.Color as SelectList, "--Select--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.varient.Color)
+        </div>
+
+
+        <div class="col-md-2 col-sm-2">
+            @Html.DropDownListFor(model => model.varient.Size, ViewBag.Size as SelectList, "--Select--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.varient.Size)
+        </div>
+
+        <div class="col-md-2 col-sm-2">
+            <button type="submit" class="btn btn-primary">ADD</button>
+        </div>
+
+    </div>
+
+    <div id="dvVarientList">
+
+    </div>
+}

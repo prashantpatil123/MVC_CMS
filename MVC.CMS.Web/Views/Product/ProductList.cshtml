@@ -1,0 +1,55 @@
+﻿@using BO.ViewModels
+
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<h2>Product List</h2>
+
+
+<style type="text/css">
+    .modal-lg {
+        width: 800px;
+    }
+
+    .row {
+        margin: 10px 0px 10px 0px;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+    });  
+</script>
+
+<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create</button>
+
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create Product</h4>
+            </div>
+            <div class="modal-body">
+
+                @using (Ajax.BeginForm("CreateProduct", "Product", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "dvVarient",OnSuccess="Sucess" }))
+                {
+                    @Html.Partial("_CreateProduct", new VmProduct())
+
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Save changes" />
+                    </div>
+                }
+
+            </div>
+
+
+            <div id="dvVarient" style="margin-top:20px">
+            </div>
+        </div>
+    </div>
+</div>
+
